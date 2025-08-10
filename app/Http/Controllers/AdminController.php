@@ -3,10 +3,26 @@
 namespace App\Http\Controllers;
 
 use App\Models\Admin;
+use Exception;
 use Illuminate\Http\Request;
 
 class AdminController extends Controller
 {
+
+    /**
+     * Display admin login page
+     */
+    public function admin_login_page(){
+        try{
+            return view('form.admin_login_form');
+        }catch(Exception $ex){
+            return response()->json(['status' => 'fail', 'message'=>$ex->getMessage()]);
+        }
+    }
+
+
+
+
     /**
      * Display a listing of the resource.
      */
